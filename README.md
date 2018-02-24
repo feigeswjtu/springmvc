@@ -1,47 +1,12 @@
-# 我们是什么
+写了快两年的Java代码了，发现自己居然不会搭建一套Spring mvc环境出来，只会添砖加瓦，说来就惭愧了，为了弥补这点的缺陷，也为了以后更好的借助已有的SpringMVC项目学习更多的知识，我决定从零搭建一套自己的SpringMVC。
 
-abajsdhkajs
-## ssssssssss
+网上搜索大部分都是基于XML配置的环境搭建，基于XML大部分是因为历史项目的原因无法切换成基于JavaConfig来进行配置，但是基于JavaConfig是未来的趋势，所以本系列的文章是零XML配置的，喜欢XML请自行搜索其他文章。
 
-```java
-@GetMapping("received_card")
-public OkResponse receivedCard(@Context HttpServletRequest request, String openId, Integer cardId){
+使用的基础环境如下:
+ - 系统: MacOS（也就是Linux系统）
+ - java版本: 1.8.0_151，[下载地址](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+ - Tomcat版本: 8.5.20， [下载地址](https://tomcat.apache.org/download-80.cgi)
+ - Maven版本: 3.5.0，[下载地址](http://maven.apache.org/download.cgi)
+ - 开发工具: IntelliJ Idea
 
-if(jfqService.hasEnd()){
-return OkResponse.error(2, "活动已结束");
-}
-if(cardId == null || !cardService.checkCardId(cardId)) {
-return OkResponse.error(-1, "参数不合法");
-}
-
-Integer userId = currentUserId(request);
-if(userId == null || userId == 0) {
-return OkResponse.error(1, "未登录");
-}
-
-return OkResponse.ok(jfqService.receivedCard(userId, cardId, openId));
-}
-```
-
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
-
-```java
-    @GetMapping("ask_card")
-    public OkResponse askCard(@Context HttpServletRequest request, Integer cardId){
-        if(jfqService.hasEnd()){
-            return OkResponse.error(2, "活动已结束");
-        }
-        if(cardId == null || !cardService.checkCardId(cardId)) {
-            return OkResponse.error(-1, "参数不合法");
-        }
-
-        Integer userId = currentUserId(request);
-        if(userId == null || userId == 0) {
-            return OkResponse.error(1, "未登录");
-        }
-        return OkResponse.ok(jfqService.askCard(userId, cardId));
-    }
-```
-
-
-
+废话不多说，开始整起。
