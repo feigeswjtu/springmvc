@@ -9,4 +9,6 @@
  - Maven版本: 3.5.0，[下载地址](http://maven.apache.org/download.cgi)
  - 开发工具: IntelliJ Idea
 
+源码的下载地址: https://github.com/feigeswjtu/springmvc-projects
+
 废话不多说，开始整起。

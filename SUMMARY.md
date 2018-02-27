@@ -5,4 +5,5 @@
 * [搭建基础环境](base.md)
 * [配置消息转换器](messageConverter.md)
 * [配置FreeMarker](freemarker.md)
+* [配置数据库](database.md)
 
